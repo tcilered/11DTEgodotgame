@@ -6,6 +6,7 @@
 size = Vector2(34.0802, 30.6402)
 
 [node name="TxPropsSmallCrate" type="StaticBody2D"]
+collision_layer = 4
 
 [node name="TxPropsSmallCrate" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
