@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brnuu73q06wed"
-path="res://.godot/imported/playerholdertemp.jpg-7f92cd8093cb9cf8823bb0610b4972d3.ctex"
+uid="uid://bp65x66fjh4ti"
+path="res://.godot/imported/U_Attack.png-9bda08c2664bf0f4405efb1d17495e33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/playerholdertemp.jpg"
-dest_files=["res://.godot/imported/playerholdertemp.jpg-7f92cd8093cb9cf8823bb0610b4972d3.ctex"]
+source_file="res://assets/Goblin/U_Attack.png"
+dest_files=["res://.godot/imported/U_Attack.png-9bda08c2664bf0f4405efb1d17495e33.ctex"]
 
 [params]
 

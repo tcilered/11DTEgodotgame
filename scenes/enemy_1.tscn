@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://btchn13p4eu8u"]
+
+[ext_resource type="Script" path="res://scenes/enemy_1.gd" id="1_m05wp"]
+[ext_resource type="Texture2D" uid="uid://i2qfoamknhwr" path="res://assets/Slime/D_Walk2.png" id="2_lgtna"]
+
+[sub_resource type="Animation" id="Animation_ho6gi"]
+resource_name = "walk"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DWalk2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 5, 2, 3, 4, 5, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 0.6, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -9), Vector2(0, -15), Vector2(0, -15), Vector2(0, -7)]
+}
+
+[sub_resource type="Animation" id="Animation_c3ghe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DWalk2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0lrma"]
+_data = {
+"RESET": SubResource("Animation_c3ghe"),
+"walk": SubResource("Animation_ho6gi")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lndh8"]
+radius = 9.01013
+
+[node name="Enemy1" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_m05wp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0lrma")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lndh8")
+
+[node name="DWalk2" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("2_lgtna")
+hframes = 6

@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b5eeg83bhf3wr" path="res://assets/TX Props small crate.png" id="1_8n48t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cp6m"]
-size = Vector2(32, 35)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnt6q"]
+size = Vector2(34.0802, 30.6402)
 
 [node name="TxPropsSmallCrate" type="StaticBody2D"]
 
@@ -12,5 +12,6 @@ position = Vector2(0, -11)
 texture = ExtResource("1_8n48t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.5)
-shape = SubResource("RectangleShape2D_5cp6m")
+position = Vector2(-0.320079, -4.9599)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_pnt6q")
