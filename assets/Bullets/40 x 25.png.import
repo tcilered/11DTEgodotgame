@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://veeh6woogw1k"
-path="res://.godot/imported/TX Shadow.png-331ee864975621498c14072a1ebdd894.ctex"
+uid="uid://bu4th4xc3rpyu"
+path="res://.godot/imported/40 x 25.png-cccb5be02648ab27405cd83db71f403f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TX Shadow.png"
-dest_files=["res://.godot/imported/TX Shadow.png-331ee864975621498c14072a1ebdd894.ctex"]
+source_file="res://assets/Bullets/40 x 25.png"
+dest_files=["res://.godot/imported/40 x 25.png-cccb5be02648ab27405cd83db71f403f.ctex"]
 
 [params]
 

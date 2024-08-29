@@ -5,6 +5,7 @@ func _physics_process(delta):
 	if enemies_in_range.size() > 0:
 		var target_enemy = enemies_in_range.front()
 		look_at(target_enemy.global_position)
+		
 
 func Shoot():
 	const BULLET = preload("res://scenes/projectile_1.tscn")
@@ -17,4 +18,4 @@ func _on_timer_timeout() -> void:
 	var enemies_in_range = get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
 			Shoot()
-			#make it follow the mouse
+			#

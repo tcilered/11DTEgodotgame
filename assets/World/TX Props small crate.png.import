@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5eeg83bhf3wr"
-path="res://.godot/imported/TX Props small crate.png-7acfa6cea28b6b2a7b3c3d6a638759c2.ctex"
+path="res://.godot/imported/TX Props small crate.png-d4555efb964993883a4635a546f5de4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TX Props small crate.png"
-dest_files=["res://.godot/imported/TX Props small crate.png-7acfa6cea28b6b2a7b3c3d6a638759c2.ctex"]
+source_file="res://assets/World/TX Props small crate.png"
+dest_files=["res://.godot/imported/TX Props small crate.png-d4555efb964993883a4635a546f5de4e.ctex"]
 
 [params]
 
