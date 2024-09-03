@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnydp21mu7l4i"]
+
+[ext_resource type="Texture2D" uid="uid://khp2to1c2x44" path="res://assets/TACO!!!!!!!.webp" id="1_axne6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_whia3"]
+radius = 36.3456
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0u2yr"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 102.43
+angular_velocity_min = -326.6
+angular_velocity_max = 489.9
+orbit_velocity_min = -0.144
+orbit_velocity_max = -0.144
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 72.16
+gravity = Vector3(0, 300, 0)
+scale_min = 0.0
+scale_max = 0.01
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_whia3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.439998, 0.439998)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_0u2yr")
+texture = ExtResource("1_axne6")
