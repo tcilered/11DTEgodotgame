@@ -37,7 +37,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_xe357")
 }],
 "loop": true,
-"name": &"default",
+"name": &"default bullet",
 "speed": 5.0
 }]
 
@@ -54,5 +54,6 @@ shape = SubResource("CircleShape2D_pfifo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qmlvt")
+animation = &"default bullet"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

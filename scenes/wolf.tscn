@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc74g45enx3rm"]
+
+[ext_resource type="Texture2D" uid="uid://bgike6mivgfsr" path="res://assets/Wolf/S_Walk.png" id="1_cp7hd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vmlob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ua1"]
+atlas = ExtResource("1_cp7hd")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36n5p"]
+atlas = ExtResource("1_cp7hd")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6010t"]
+atlas = ExtResource("1_cp7hd")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pdpo"]
+atlas = ExtResource("1_cp7hd")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3obb4"]
+atlas = ExtResource("1_cp7hd")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbyph"]
+atlas = ExtResource("1_cp7hd")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_logss"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5ua1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36n5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6010t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pdpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3obb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbyph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="wolf" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vmlob")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_logss")
+frame = 1
+frame_progress = 0.0267284
