@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc74g45enx3rm"]
+[gd_scene load_steps=13 format=3 uid="uid://dc74g45enx3rm"]
 
+[ext_resource type="Script" path="res://scenes/wolf.gd" id="1_6c3ts"]
 [ext_resource type="Texture2D" uid="uid://bgike6mivgfsr" path="res://assets/Wolf/S_Walk.png" id="1_cp7hd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vmlob"]
@@ -54,7 +55,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2y8s3"]
+radius = 70.0643
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uua2p"]
+radius = 20.6155
+
 [node name="wolf" type="CharacterBody2D"]
+script = ExtResource("1_6c3ts")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vmlob")
@@ -64,3 +72,19 @@ position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_logss")
 frame = 1
 frame_progress = 0.0267284
+
+[node name="Notice area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Notice area"]
+shape = SubResource("CircleShape2D_2y8s3")
+
+[node name="Attack area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack area"]
+shape = SubResource("CircleShape2D_uua2p")
+debug_color = Color(0.993906, 0, 0.230484, 0.42)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="area_shape_exited" from="Notice area" to="." method="_on_notice_area_area_shape_exited"]
+[connection signal="body_entered" from="Notice area" to="." method="_on_notice_area_body_entered"]

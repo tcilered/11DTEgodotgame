@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr4eyjhdmhbwq"]
+[gd_scene load_steps=6 format=3 uid="uid://cr4eyjhdmhbwq"]
 
 [ext_resource type="PackedScene" uid="uid://7peua65iwlh7" path="res://scenes/world.tscn" id="1_5sgxs"]
 [ext_resource type="PackedScene" uid="uid://cbdxyhpli3d6b" path="res://scenes/player.tscn" id="2_pluyj"]
 [ext_resource type="PackedScene" uid="uid://btchn13p4eu8u" path="res://scenes/slime.tscn" id="4_3hrc5"]
+[ext_resource type="PackedScene" uid="uid://dc74g45enx3rm" path="res://scenes/wolf.tscn" id="4_qlbe6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_54hly"]
+vertices = PackedVector2Array(1086.41, 575.211, 1088.57, 627.859, 955.078, 626.117, 996, 577.219, 956.094, 510, 996, 516, 924.93, 437, 924.07, 315.32, 955, 316.328, 955, 437, 955, 283.156, 997, 283.844, 997, 445.156, 955, 483.727, 1060, 516, 1060, 444.156, 919.781, 510, 919.219, 484.719)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(8, 10, 11, 12), PackedInt32Array(9, 8, 12), PackedInt32Array(13, 9, 12, 14, 5, 4), PackedInt32Array(12, 15, 14), PackedInt32Array(13, 4, 16, 17)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1007, 435, 1007, 274, 945, 273, 945, 306, 914, 305, 915, 447, 945, 447, 945, 474, 909, 475, 910, 520, 946, 520, 945, 636, 1099, 638, 1096, 565, 1006, 567, 1006, 526, 1070, 526, 1070, 434)])
 
 [node name="Main" type="Node"]
 
@@ -22,3 +28,9 @@ position = Vector2(576, 567)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_3hrc5")]
 position = Vector2(706, 412)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_54hly")
+
+[node name="wolf" parent="." instance=ExtResource("4_qlbe6")]
+position = Vector2(987, 473)
