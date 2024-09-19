@@ -85,6 +85,7 @@ shape = SubResource("CircleShape2D_uua2p")
 debug_color = Color(0.993906, 0, 0.230484, 0.42)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [connection signal="area_shape_exited" from="Notice area" to="." method="_on_notice_area_area_shape_exited"]
 [connection signal="body_entered" from="Notice area" to="." method="_on_notice_area_body_entered"]
