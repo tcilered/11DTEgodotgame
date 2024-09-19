@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dc74g45enx3rm" path="res://scenes/wolf.tscn" id="4_qlbe6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_54hly"]
-vertices = PackedVector2Array(1086.41, 575.211, 1088.57, 627.859, 955.078, 626.117, 996, 577.219, 956.094, 510, 996, 516, 924.93, 437, 924.07, 315.32, 955, 316.328, 955, 437, 955, 283.156, 997, 283.844, 997, 445.156, 955, 483.727, 1060, 516, 1060, 444.156, 919.781, 510, 919.219, 484.719)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(8, 10, 11, 12), PackedInt32Array(9, 8, 12), PackedInt32Array(13, 9, 12, 14, 5, 4), PackedInt32Array(12, 15, 14), PackedInt32Array(13, 4, 16, 17)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1007, 435, 1007, 274, 945, 273, 945, 306, 914, 305, 915, 447, 945, 447, 945, 474, 909, 475, 910, 520, 946, 520, 945, 636, 1099, 638, 1096, 565, 1006, 567, 1006, 526, 1070, 526, 1070, 434)])
+vertices = PackedVector2Array(999.57, 567.633, 1100.28, 561.703, 1090.39, 627.938, 949, 627.063, 1000, 441, 1001.38, 522.313, 949, 509, 955, 483.727, 955, 435.789, 919.773, 439.813, 917.188, 311.703, 949.922, 310.742, 1063.79, 441, 1062.19, 520.32, 919, 509, 919, 484.727, 1000, 280.398, 953.82, 277.563)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0, 3, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(4, 12, 13, 5), PackedInt32Array(6, 14, 15, 7), PackedInt32Array(4, 7, 8, 16), PackedInt32Array(16, 8, 11, 17)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1010, 431, 1010, 271, 945, 267, 941, 301, 907, 302, 910, 451, 945, 447, 945, 474, 909, 475, 909, 519, 939, 519, 939, 637, 1099, 638, 1112, 551, 1010, 557, 1011, 532, 1072, 530, 1074, 431)])
 
 [node name="Main" type="Node"]
 
