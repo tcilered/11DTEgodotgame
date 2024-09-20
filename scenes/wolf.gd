@@ -9,7 +9,7 @@ var active: bool = false
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector3()
-	$NavigationAgent2D.target_position = get_global_mouse_position()
+	$NavigationAgent2D.target_position = player.global_position
 	direction = nav.get_next_path_position() - global_position
 	direction = direction.normalized()
 	velocity = velocity.lerp(direction * speed, accel * delta)
