@@ -1,17 +1,29 @@
 extends CharacterBody2D
-var health = 100.0
+@onready var anim : AnimatedSprite2D = $"player animations"
 
-signal health_depleted
 
 func _physics_process(delta):
-	var direction = Input.get_vector("left","right","up","down")
+	var direction = Input.get_vector("left","right","up","down").normalized()
 	velocity = direction * 200
 	move_and_slide()
 
-	const DAMAGE_RATE = 5.0
+	#plays the animations for the player from the animatedsprite2d(player animations)
+	if velocity.x < 0:
+		anim.flip_h = true
+		anim.play("move left")
+	if velocity.x > 0:
+		anim.flip_h = false
+		anim.play("move left")
+	if velocity.y < 0:
+		anim.play("move forward")
+	if velocity.y > 0:
+		anim.play("move back")
 
-	var overlapping_mobs = %Hurtbox.get_overlapping_bodies()
-	if overlapping_mobs.size() > 0:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
-		if health <= 0.0:
-			health_depleted.emit()
+
+func _on_pickup_zone_area_entered(area: Area2D) -> void:
+	if area.is_in_group("pickup"):
+		if area.has_method("collect"):
+			area.collect()
+			
+			
+	

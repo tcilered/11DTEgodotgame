@@ -34,20 +34,5 @@ position = Vector2(706, 412)
 position = Vector2(-18, 7)
 navigation_polygon = SubResource("NavigationPolygon_54hly")
 
-[node name="wolf" parent="." instance=ExtResource("4_qlbe6")]
-position = Vector2(987, 473)
-
 [node name="wolf2" parent="." instance=ExtResource("4_qlbe6")]
 position = Vector2(1034, 583)
-
-[node name="wolf3" parent="." instance=ExtResource("4_qlbe6")]
-position = Vector2(912, 619)
-
-[node name="wolf4" parent="." instance=ExtResource("4_qlbe6")]
-position = Vector2(1055, 406)
-
-[node name="wolf5" parent="." instance=ExtResource("4_qlbe6")]
-position = Vector2(1040, 785)
-
-[node name="wolf6" parent="." instance=ExtResource("4_qlbe6")]
-position = Vector2(1188, 831)

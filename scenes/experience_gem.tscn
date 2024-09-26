@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://csf3vknvsyb7e"]
+
+[ext_resource type="Script" path="res://experience_gem.gd" id="1_x42nw"]
+[ext_resource type="Texture2D" uid="uid://jb3yshjq3310" path="res://assets/TX Player - Copy - Copy - Copy (2).png" id="2_lnnli"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7qlc"]
+
+[node name="experience gem" type="Area2D" groups=["pickup"]]
+script = ExtResource("1_x42nw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(154, 118)
+scale = Vector2(0.11512, 0.11512)
+texture = ExtResource("2_lnnli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(152, 119)
+scale = Vector2(1.61359, 1.41618)
+shape = SubResource("CircleShape2D_x7qlc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

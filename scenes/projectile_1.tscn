@@ -45,6 +45,7 @@ animations = [{
 top_level = true
 position = Vector2(147, 106)
 rotation = -0.521845
+scale = Vector2(2.08879, 2.08879)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_atctu")

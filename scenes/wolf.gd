@@ -1,7 +1,7 @@
 extends CharacterBody2D
-
-var speed = 300
-var accel = 7
+@onready var anim : AnimatedSprite2D = $"wolf animations"
+var speed = 200
+var accel = 3
 
 var active: bool = false
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
@@ -13,7 +13,17 @@ func _physics_process(delta: float) -> void:
 	direction = nav.get_next_path_position() - global_position
 	direction = direction.normalized()
 	velocity = velocity.lerp(direction * speed, accel * delta)
-
+	
+	
+	#plays the animations for the player from the animatedsprite2d(player animations)
+	if velocity.x > 0:
+		anim.flip_h = true
+		anim.play("move left")
+	if velocity.x < 0:
+		anim.flip_h = false
+		anim.play("move left")
+		
+		
 func _process(delta):
 	pass
 	move_and_slide()
