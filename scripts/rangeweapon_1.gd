@@ -13,7 +13,8 @@ func Shoot():
 	new_bullet.global_position = %Shootingpoint.global_position
 	new_bullet.global_rotation = %Shootingpoint.global_rotation
 	%Shootingpoint.add_child(new_bullet)
-#determines when the weapon fires 
+	
+#determines if the weapon fires 
 func _on_timer_timeout() -> void:
 	var enemies_in_range = get_overlapping_bodies()
 	if enemies_in_range.size() > 0:

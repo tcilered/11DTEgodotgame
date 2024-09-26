@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var anim : AnimatedSprite2D = $"wolf animations"
 var speed = 200
 var accel = 3
+var health = 10
 
 var active: bool = false
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
@@ -27,12 +28,9 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	pass
 	move_and_slide()
-
-func _on_notice_area_body_entered(body: Node2D) -> void:
-	pass
-	active = true
-
-
-func _on_notice_area_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	pass
-	active = false
+	
+func take_damage():
+	health = health - 2
+	if health == 0:
+		anim.play("death")
+		queue_free()

@@ -1,10 +1,35 @@
-[gd_scene load_steps=20 format=3 uid="uid://dc74g45enx3rm"]
+[gd_scene load_steps=27 format=3 uid="uid://dc74g45enx3rm"]
 
 [ext_resource type="Script" path="res://scenes/wolf.gd" id="1_6c3ts"]
 [ext_resource type="Texture2D" uid="uid://bgike6mivgfsr" path="res://assets/Wolf/S_Walk.png" id="1_cp7hd"]
 [ext_resource type="Texture2D" uid="uid://b87h3wt4au4o3" path="res://assets/Wolf/D_Walk.png" id="2_0mhji"]
+[ext_resource type="Texture2D" uid="uid://o5007bde7ms" path="res://assets/Wolf/D_Death.png" id="2_yyhst"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vmlob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0jwy"]
+atlas = ExtResource("2_yyhst")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr20f"]
+atlas = ExtResource("2_yyhst")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myj2f"]
+atlas = ExtResource("2_yyhst")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrakw"]
+atlas = ExtResource("2_yyhst")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6hqb"]
+atlas = ExtResource("2_yyhst")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je24b"]
+atlas = ExtResource("2_yyhst")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uvy0"]
 atlas = ExtResource("2_0mhji")
@@ -56,6 +81,29 @@ region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_logss"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0jwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr20f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myj2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrakw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6hqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je24b")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5uvy0")
@@ -118,7 +166,7 @@ shape = SubResource("CircleShape2D_vmlob")
 [node name="wolf animations" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_logss")
-animation = &"move back"
+animation = &"death"
 
 [node name="Notice area" type="Area2D" parent="."]
 

@@ -1,7 +1,8 @@
 extends CharacterBody2D
+signal health_depleated
 @onready var anim : AnimatedSprite2D = $"player animations"
-
-
+var health = 100.0
+#gets the inputs and moves the player in the direction
 func _physics_process(delta):
 	var direction = Input.get_vector("left","right","up","down").normalized()
 	velocity = direction * 200
@@ -18,12 +19,12 @@ func _physics_process(delta):
 		anim.play("move forward")
 	if velocity.y > 0:
 		anim.play("move back")
-
-
-func _on_pickup_zone_area_entered(area: Area2D) -> void:
-	if area.is_in_group("pickup"):
-		if area.has_method("collect"):
-			area.collect()
-			
-			
 	
+	const DAMAGE_RATE = 5.0
+	var overlapping_slimes = $Hurtbox.get_overlapping_bodies()
+	if overlapping_slimes.size() > 0:
+		health -= 10 + DAMAGE_RATE * overlapping_slimes.size() * delta
+		%ProgressBar.value = health
+		if health <= 0.0:
+			health_depleated.emit()
+			#game over

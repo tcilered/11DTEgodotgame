@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr4eyjhdmhbwq"]
+[gd_scene load_steps=8 format=3 uid="uid://cr4eyjhdmhbwq"]
 
 [ext_resource type="PackedScene" uid="uid://7peua65iwlh7" path="res://scenes/world.tscn" id="1_5sgxs"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_eq5oe"]
 [ext_resource type="PackedScene" uid="uid://cbdxyhpli3d6b" path="res://scenes/player.tscn" id="2_pluyj"]
 [ext_resource type="PackedScene" uid="uid://btchn13p4eu8u" path="res://scenes/slime.tscn" id="4_3hrc5"]
 [ext_resource type="PackedScene" uid="uid://dc74g45enx3rm" path="res://scenes/wolf.tscn" id="4_qlbe6"]
+
+[sub_resource type="Curve2D" id="Curve2D_l6dap"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -62, 163, 0, 0, 0, 0, 1489, 180, 0, 0, 0, 0, 1455, 1285, 0, 0, 0, 0, -67, 1288, 0, 0, 0, 0, -64, 162, 0, 0, 0, 0, -62, 163)
+}
+point_count = 6
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_54hly"]
 vertices = PackedVector2Array(1227.05, 321.883, 1230.94, 1043.34, 1161.81, 917.789, 1160.95, 869.883, 1160.95, 859.648, 1154.86, 456.68, 1156.77, 414.672, 1088.29, 920.5, 1099.11, 952.961, 756.102, 952.023, 756.891, 876.031, 1014.04, 877.039, 1154.93, 1046, 772.781, 1046.97, 776.258, 1001.12, 1163.15, 1006.13, 758.844, 825.953, 758.156, 781.648, 790.047, 783.648, 960.031, 825.039, 899.961, 443.031, 579.367, 442.031, 581.633, 381, 1000, 381, 738.297, 568.867, 678.211, 568.117, 679.789, 493, 739.32, 536.672, 851.039, 493, 788.961, 538.328, 852.039, 747, 901.039, 747, 961.039, 568.68, 1012.97, 570.313, 1000, 349, 1106.16, 349, 1107.15, 411.367, 1107.07, 453.273, 1104.39, 869.641, 1158.78, 321.109)
@@ -11,6 +18,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(572, 371, 569, 452, 890, 453, 891, 737, 862, 737, 861, 483, 670, 483, 668, 578, 748, 579, 749, 547, 779, 548, 780, 773, 748, 771, 749, 836, 970, 835, 971, 579, 1003, 580, 1004, 867, 747, 866, 746, 962, 1113, 963, 1102, 930, 1184, 927, 1184, 860, 1114.45, 859.681, 1117, 464, 1145, 466, 1150.94, 859.724, 1151.93, 924.792, 1153, 996, 767, 991, 762, 1057, 1155, 1056, 1241, 1053, 1237, 312, 1149, 311, 1147, 404, 1117, 402, 1116, 339, 990, 339, 990, 371)])
 
 [node name="Main" type="Node"]
+script = ExtResource("1_eq5oe")
 
 [node name="World" parent="." instance=ExtResource("1_5sgxs")]
 y_sort_enabled = true
@@ -20,6 +28,15 @@ position = Vector2(-902, -102)
 position = Vector2(1373, 703)
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
+
+[node name="Path2D" type="Path2D" parent="World/Player"]
+position = Vector2(-471, -601)
+curve = SubResource("Curve2D_l6dap")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="World/Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-62, 163)
+rotation = 0.0109602
 
 [node name="Enemy1" parent="." instance=ExtResource("4_3hrc5")]
 position = Vector2(468, 656)
@@ -36,3 +53,41 @@ navigation_polygon = SubResource("NavigationPolygon_54hly")
 
 [node name="wolf2" parent="." instance=ExtResource("4_qlbe6")]
 position = Vector2(1034, 583)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="gameover" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="gameover"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0.701961)
+
+[node name="Label" type="Label" parent="gameover/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -25.0
+offset_right = 97.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.69299, 2.3087)
+theme_override_font_sizes/font_size = 36
+text = "Game Over"
+
+[connection signal="health_depleated" from="World/Player" to="." method="_on_player_health_depleated"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
