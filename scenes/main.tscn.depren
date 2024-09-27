@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr4eyjhdmhbwq"]
+
+[ext_resource type="PackedScene" uid="uid://7peua65iwlh7" path="res://scenes/world.tscn" id="1_5sgxs"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_eq5oe"]
+[ext_resource type="PackedScene" uid="uid://cbdxyhpli3d6b" path="res://scenes/player.tscn" id="2_pluyj"]
+[ext_resource type="PackedScene" uid="uid://dc74g45enx3rm" path="res://scenes/wolf.tscn" id="4_qlbe6"]
+
+[sub_resource type="Curve2D" id="Curve2D_l6dap"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -155.759, 132.691, 0, 0, 0, 0, 1414.66, 144.428, 0, 0, 0, 0, 1436.96, 963.675, 0, 0, 0, 0, -133.459, 950.764, 0, 0, 0, 0, -154.585, 135.039, 0, 0, 0, 0, -155.759, 132.691)
+}
+point_count = 6
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_54hly"]
+vertices = PackedVector2Array(1378.94, 978.82, -175.844, 952.172, -163.148, 118.992, 1374.05, 118)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-173, 109, 1384, 108, 1389, 989, -186, 962)])
+
+[node name="Main" type="Node"]
+script = ExtResource("1_eq5oe")
+
+[node name="World" parent="." instance=ExtResource("1_5sgxs")]
+y_sort_enabled = true
+position = Vector2(-902, -102)
+
+[node name="Player" parent="World" instance=ExtResource("2_pluyj")]
+position = Vector2(1373, 703)
+
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
+
+[node name="Path2D" type="Path2D" parent="World/Player"]
+position = Vector2(-471, -601)
+curve = SubResource("Curve2D_l6dap")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="World/Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-155.759, 132.691)
+rotation = 0.00747366
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(62, 64)
+navigation_polygon = SubResource("NavigationPolygon_54hly")
+
+[node name="wolf2" parent="." instance=ExtResource("4_qlbe6")]
+position = Vector2(1034, 583)
+
+[node name="slime spawn speed" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+
+[connection signal="health_depleated" from="World/Player" to="." method="_on_player_health_depleated"]
+[connection signal="timeout" from="slime spawn speed" to="." method="_on_timer_timeout"]

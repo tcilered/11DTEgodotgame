@@ -6,13 +6,19 @@
 size = Vector2(34.0802, 30.6402)
 
 [node name="TxPropsSmallCrate" type="StaticBody2D"]
-collision_layer = 4
+z_index = 11
+y_sort_enabled = true
+collision_layer = 7
 
-[node name="TxPropsSmallCrate" type="Sprite2D" parent="."]
-position = Vector2(0, -11)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(-2.38419e-07, -10)
+scale = Vector2(0.9375, 0.875)
 texture = ExtResource("1_8n48t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 9
+y_sort_enabled = true
 position = Vector2(-0.320079, -4.9599)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_pnt6q")

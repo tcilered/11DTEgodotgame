@@ -41,14 +41,9 @@ alignment = 1
 layout_mode = 2
 text = "Start"
 
-[node name="optionsbutt" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
 [node name="quitbutt" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/startbutt" to="." method="_on_startbutt_pressed"]
-[connection signal="pressed" from="VBoxContainer/optionsbutt" to="." method="_on_optionsbutt_pressed"]
 [connection signal="pressed" from="VBoxContainer/quitbutt" to="." method="_on_quitbutt_pressed"]

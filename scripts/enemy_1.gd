@@ -1,6 +1,8 @@
 extends CharacterBody2D
 @export var health = 10
-
+var value = 0
+@onready var counter = $UI/Control/counter
+@export var experience_value = 5
 @onready var Player = get_node("/root/Main/World/Player")
 const EXPERIENCE_GEM = preload("res://scenes/experience_gem.tscn")
 const SLIME_DEATH = preload("res://scenes/slime_death.tscn")
@@ -27,7 +29,9 @@ func take_damage():
 	health = health - Bow.bow_damage
 	if health == 0:
 		anim.play("deathslime")
+		PlayerStats.add_experience(experience_value)
 		await get_tree().create_timer(1).timeout
 		queue_free()
-	
+
+
 	

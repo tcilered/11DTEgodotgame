@@ -19,12 +19,12 @@ func _physics_process(delta):
 		anim.play("move forward")
 	if velocity.y > 0:
 		anim.play("move back")
-	
+	#dectecting for overlapping bodies to take damage 
 	const DAMAGE_RATE = 101.0
 	var overlapping_slimes = $Hurtbox.get_overlapping_bodies()
 	if overlapping_slimes.size() > 0:
 		health -= DAMAGE_RATE * overlapping_slimes.size() * delta 
+		emit_signal("take_damage")
 		%ProgressBar.value = health
 		if health <= 0.0:
 			get_tree().change_scene_to_file("res://scenes/gameover.tscn")
-			#game over
