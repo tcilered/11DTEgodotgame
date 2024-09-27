@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbdxyhpli3d6b"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u7iyv"]
-[ext_resource type="Texture2D" uid="uid://ce68tal0o1fer" path="res://assets/World/TX Player.png" id="2_p6k4k"]
+[ext_resource type="Texture2D" uid="uid://ce68tal0o1fer" path="res://assets/TX Player.png" id="2_p6k4k"]
 [ext_resource type="PackedScene" uid="uid://01qcu3sel0lp" path="res://scenes/rangeweapon_1.tscn" id="3_f3iwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfn07"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://7peua65iwlh7"]
 
-[ext_resource type="Texture2D" uid="uid://b2t0hwlhwp6f" path="res://assets/World/TX Tileset Grass.png" id="1_430sw"]
-[ext_resource type="Texture2D" uid="uid://df0ixvasce4w4" path="res://assets/World/TX Tileset Stone Ground.png" id="2_2742h"]
-[ext_resource type="Texture2D" uid="uid://6hq8mbj8c4s6" path="res://assets/World/TX Tileset Wall.png" id="3_e4rvs"]
-[ext_resource type="Texture2D" uid="uid://q150f814n71y" path="res://assets/World/TX Shadow Plant.png" id="4_17lgp"]
-[ext_resource type="Texture2D" uid="uid://esl3w8rakhvf" path="res://assets/World/TX Props.png" id="5_n2en3"]
-[ext_resource type="Texture2D" uid="uid://cye2kg5icxwh0" path="res://assets/World/TX Plant.png" id="6_hpk2l"]
+[ext_resource type="Texture2D" uid="uid://b2t0hwlhwp6f" path="res://assets/TX Tileset Grass.png" id="1_430sw"]
+[ext_resource type="Texture2D" uid="uid://df0ixvasce4w4" path="res://assets/TX Tileset Stone Ground.png" id="2_2742h"]
+[ext_resource type="Texture2D" uid="uid://6hq8mbj8c4s6" path="res://assets/TX Tileset Wall.png" id="3_e4rvs"]
+[ext_resource type="Texture2D" uid="uid://q150f814n71y" path="res://assets/TX Shadow Plant.png" id="4_17lgp"]
+[ext_resource type="Texture2D" uid="uid://esl3w8rakhvf" path="res://assets/TX Props.png" id="5_n2en3"]
+[ext_resource type="Texture2D" uid="uid://cye2kg5icxwh0" path="res://assets/TX Plant.png" id="6_hpk2l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yejin"]
 texture = ExtResource("1_430sw")
