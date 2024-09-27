@@ -74,7 +74,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_bmcce")
 }],
 "loop": false,
-"name": &"death",
+"name": &"deathslime",
 "speed": 5.0
 }, {
 "frames": [{
@@ -105,6 +105,7 @@ animations = [{
 radius = 11.0454
 
 [node name="slime" type="CharacterBody2D"]
+scale = Vector2(0.665838, 0.665838)
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_m05wp")
@@ -115,7 +116,7 @@ visibility_layer = 2
 position = Vector2(1, -11)
 scale = Vector2(2.19867, 1.7947)
 sprite_frames = SubResource("SpriteFrames_6rq81")
-animation = &"death"
+animation = &"deathslime"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

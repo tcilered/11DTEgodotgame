@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://djdie80l8q3sw"]
+
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_8o5w6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8o5w6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 998.0
+offset_bottom = 494.0
+color = Color(0.141176, 0.141176, 0.141176, 0.568627)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -127.0
+offset_right = 118.5
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("quitbutt")
+focus_neighbor_bottom = NodePath("startbutt")
+theme_override_constants/separation = 23
+alignment = 1
+
+[node name="startbutt" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="optionsbutt" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="quitbutt" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/startbutt" to="." method="_on_startbutt_pressed"]
+[connection signal="pressed" from="VBoxContainer/optionsbutt" to="." method="_on_optionsbutt_pressed"]
+[connection signal="pressed" from="VBoxContainer/quitbutt" to="." method="_on_quitbutt_pressed"]

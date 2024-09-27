@@ -158,6 +158,8 @@ radius = 70.0643
 radius = 20.6155
 
 [node name="wolf" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
 script = ExtResource("1_6c3ts")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

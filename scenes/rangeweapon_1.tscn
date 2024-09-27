@@ -20,15 +20,15 @@ shape = SubResource("CircleShape2D_xvo62")
 
 [node name="bow" type="Sprite2D" parent="Weaponpivot"]
 z_index = 10
-position = Vector2(29, 4.9738e-14)
+position = Vector2(37, 4.9738e-14)
 rotation = 2.35619
-scale = Vector2(1.6022, 1.6022)
+scale = Vector2(1.15997, 1.15997)
 texture = ExtResource("2_tj2aa")
 
 [node name="Shootingpoint" type="Marker2D" parent="Weaponpivot/bow"]
 unique_name_in_owner = true
 z_index = 2
-position = Vector2(-11.0334, -10.1507)
+position = Vector2(-8.82666, -7.94406)
 rotation = 3.92376
 
 [node name="Fire rate" type="Timer" parent="."]

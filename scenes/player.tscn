@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbdxyhpli3d6b"]
+[gd_scene load_steps=31 format=3 uid="uid://cbdxyhpli3d6b"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_u7iyv"]
 [ext_resource type="Texture2D" uid="uid://b1amj72h3mo0v" path="res://assets/TX Player.png" id="2_b5sph"]
@@ -170,13 +170,28 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwaan"]
+bg_color = Color(0.197937, 0.197937, 0.197937, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jgf1"]
+bg_color = Color(0.345715, 0.693409, 0.323071, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 1)
+scale = Vector2(0.852002, 0.852002)
 script = ExtResource("1_u7iyv")
 
 [node name="player animations" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -24)
-scale = Vector2(-1.16, 1.08)
+position = Vector2(-1.17371, -16.4319)
+scale = Vector2(-0.996022, 0.927331)
 sprite_frames = SubResource("SpriteFrames_iefhh")
 animation = &"move back"
 frame = 4
@@ -187,14 +202,16 @@ position = Vector2(-0.75, -15.75)
 shape = SubResource("RectangleShape2D_tfn07")
 
 [node name="Rangeweapon1" parent="." instance=ExtResource("3_f3iwq")]
-position = Vector2(0, -19)
+z_index = 5
+y_sort_enabled = true
+position = Vector2(0, -15.2582)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 1)
-scale = Vector2(1.07093, 1.11209)
+scale = Vector2(1.04392, 1.08404)
 collision_layer = 2
-collision_mask = 3
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-0.5, -15)
@@ -212,3 +229,66 @@ theme_override_styles/background = SubResource("StyleBoxFlat_al4g4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_j7lvy")
 value = 100.0
 show_percentage = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="xp bar" type="ProgressBar" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 289.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_hwaan")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2jgf1")
+value = 50.0
+show_percentage = false
+
+[node name="level up notice" type="PanelContainer" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/level up notice"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/level up notice/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="max health up" type="Button" parent="UI/Control/level up notice/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Increase Max Health"
+
+[node name="damage up" type="Button" parent="UI/Control/level up notice/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Increase Damage"
+
+[node name="speed up" type="Button" parent="UI/Control/level up notice/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Increase Speed"

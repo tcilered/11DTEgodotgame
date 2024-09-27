@@ -1,5 +1,6 @@
 extends CharacterBody2D
-var health = 10
+@export var health = 10
+
 @onready var Player = get_node("/root/Main/World/Player")
 const EXPERIENCE_GEM = preload("res://scenes/experience_gem.tscn")
 const SLIME_DEATH = preload("res://scenes/slime_death.tscn")
@@ -12,18 +13,21 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	#plays the animations if moving
-	if velocity.x < 0:
+	if velocity.x < 0 and health > 0:
 		anim.play("jump")
-	if velocity.x > 0:
+	if velocity.x > 0 and health > 0:
 		anim.play("jump")
-	if velocity.y < 0:
+	if velocity.y < 0 and health > 0:
 		anim.play("jump")
-	if velocity.y > 0:
+	if velocity.y > 0 and health > 0:
 		anim.play("jump")
 
 #checks and updates health
 func take_damage():
-	health = health - 2
+	health = health - Bow.bow_damage
 	if health == 0:
-		anim.play("death")
+		anim.play("deathslime")
+		await get_tree().create_timer(1).timeout
 		queue_free()
+	
+	

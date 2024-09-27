@@ -14,9 +14,8 @@ func _physics_process(delta):
 	if travelled_distance > RANGE:
 		queue_free()
 
-
+#detecting for overlaps on mask 4(bullets) then lowering health
 func _on_body_entered(body):
-	queue_free()
 	if body.has_method("take_damage"):
 		body.take_damage()
-	
+	queue_free()

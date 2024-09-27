@@ -1,5 +1,5 @@
 extends Node
-
+@onready var gameover: CanvasLayer = %gameover
 
 func spawn_slime():
 	var SLIME = preload("res://scenes/slime.tscn").instantiate()
@@ -11,7 +11,4 @@ func spawn_slime():
 func _on_timer_timeout() -> void:
 	spawn_slime()
 
-
-func _on_player_health_depleated() -> void:
-	%gameover.visable = true
-	get_tree().paused = true
+#func _on_player_health_depleated() -> void:
